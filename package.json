@@ -5,7 +5,7 @@
     "build": "next build",
     "start": "next start -p $PORT",
     "heroku-postbuild": "npm run build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "NODE_ENV=test jest  --watch "
   },
   "dependencies": {
     "antd": "^3.4.0",
