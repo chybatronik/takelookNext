@@ -3,7 +3,8 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "heroku-postbuild": "npm run build",
   },
   "dependencies": {
     "antd": "^3.4.0",
