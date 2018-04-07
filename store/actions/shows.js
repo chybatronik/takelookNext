@@ -9,9 +9,10 @@ export const RECEIVE_SHOWS = 'RECEIVE_SHOWS'
 export const ERROR_SHOWS = 'ERROR_SHOWS'
 export const RECEIVE_SEARCH_SHOWS = 'RECEIVE_SEARCH_SHOWS'
 
-export const requestShows = () => ({
+export const requestShows = (name = '') => ({
   type: REQUEST_SHOWS,
   payload: {
+    queryName: name
   }
 })
 
@@ -69,8 +70,8 @@ export const getOneShow = (id = 0) => async (dispatch) => {
 }
 
 export const getSearchShows = (query = 0) => async (dispatch) => {
-  console.log('getSearchShows::', query)
-  dispatch(requestShows())
+  // console.log('getSearchShows::', query)
+  dispatch(requestShows(query))
   const uri = URLSearch + `?q=${query}`
 
   try {
@@ -79,12 +80,12 @@ export const getSearchShows = (query = 0) => async (dispatch) => {
       throw new Error('Bad response from server')
     }
     const data = await response.json()
-    console.log("dataVVdata::length:", data.length, response.status)
-    const ver_data = data.map((item) => {
+    // console.log("dataVVdata::length:", data.length, response.status)
+    const verData = data.map((item) => {
       return item.show
     })
-    console.log("ver_data:::", ver_data)
-    dispatch(receiveSearchShows(ver_data))
+    // console.log("ver_data:::", ver_data)
+    dispatch(receiveSearchShows(verData))
   } catch (err) {
     dispatch(errorShows(err.message))
   }

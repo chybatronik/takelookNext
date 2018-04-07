@@ -1,10 +1,8 @@
 import React, { Component } from 'react'
-// import { connect } from 'react-redux'
 import * as actions from '../store/actions/shows'
 import * as actionsEpisodes from '../store/actions/episodes'
 import { Row, Col, Tag, Alert, Spin, Card, Table, Icon } from 'antd'
 import { makeStore } from '../store'
-// import Router from 'next/router'
 import NavigateApp from '../components/Layout.js'
 import withRedux from 'next-redux-wrapper'
 
@@ -13,7 +11,6 @@ const CheckableTag = Tag.CheckableTag
 export class DetailsConatiner extends Component {
   static async getInitialProps ({query, store, isServer}) {
     console.log('getInitialProps DetailsConatiner')
-
     const state = store.getState()
     const { shows } = state.shows
     const show = shows[query.id]

@@ -15,6 +15,7 @@ const shows = (state = defaultState, action) => {
         ...state,
         config: {
           ...state.config,
+          queryName: action.payload.queryName,
           isFetch: true
         }
       }

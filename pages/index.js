@@ -80,5 +80,4 @@ const mapStateToProps = state => {
   }
 }
 
-
 export default withRedux(makeStore, mapStateToProps, mapDispatchToProps)(DefaultListContainer)

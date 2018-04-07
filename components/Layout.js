@@ -6,7 +6,7 @@ import enUS from 'antd/lib/locale-provider/en_US'
 const Search = Input.Search
 const { Header, Content, Footer } = Layout
 
-export default ({ title, children, url }) =>
+export default ({ title, children, url, queryName }) =>
   <div>
     <Head>
       <title>{ title }</title>
@@ -30,6 +30,7 @@ export default ({ title, children, url }) =>
         <Header style={{ position: 'fixed', width: '100%', zIndex: 1000 }}>
           <Search
             placeholder='Search Shows and People'
+            defaultValue={queryName}
             onSearch={value => {
               console.log('value:L', value)
               if (!value || value === '') {
